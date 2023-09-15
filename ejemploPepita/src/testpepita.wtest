@@ -1,0 +1,23 @@
+import pepita.*
+
+
+test "test energia pepita" {
+
+	assert.that(pepita.energia() == 100)
+
+}
+
+test "test pepita volar" {
+	pepita.volar(20)
+	assert.equals(80, pepita.energia())
+}
+
+test "test pepita comer" {
+	pepita.comer(10)
+	assert.equals(100, pepita.energia())
+}
+
+
+
+
+
