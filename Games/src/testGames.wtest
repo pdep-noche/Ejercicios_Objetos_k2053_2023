@@ -1,0 +1,31 @@
+import games.*
+
+describe "group of tests" {
+	
+	const rekkles = new Jugador(antiguedad = 9, cantTorneosInternacionales = 14)
+	const josedeodo = new Jugador(antiguedad = 4, cantTorneosInternacionales = 1) 
+
+	test "rekkles tiene experiencia" {
+		assert.that(rekkles.tieneExperiencia())
+	}
+	
+	test "rekkles puede jugar" {
+		assert.that(rekkles.puedeJugar())
+	}
+	
+	test "rekkles es titular" {
+		assert.that(rekkles.esTitular())
+	}
+	
+	test "rekkles tomar energizante y nivel de cansancio 0" {
+		rekkles.tomarEnergizante(10)
+		assert.equals(0, rekkles.nivelCansancio())
+	}
+	
+	test "rekkles tomar energizante y nivel de cansancio mayor
+	a cero" {
+		rekkles.nivelCansancio(100)
+		rekkles.tomarEnergizante(8)
+		assert.equals(20, rekkles.nivelCansancio())		
+	}
+}
