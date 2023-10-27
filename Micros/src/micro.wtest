@@ -1,0 +1,27 @@
+import micros.*
+describe "test de ej. micros" {
+	
+	const unMicro = new Micro(cantPasajerosSentados = 10, cantPasajerosParados = 5, volumen = 100)
+	
+	const julia = new Empleado(personalidad = apurado)
+	
+	test "subir a un apurado" {
+		unMicro.subirA(julia)
+		assert.that(unMicro.estaEmpleado(julia))
+	}
+	
+	test "no puede subir claustrofóbico" {
+		julia.personalidad(clautrofobico)
+		assert.throwsException({unMicro.subirA(julia)})
+	}
+	
+	test "puede bajar a un apurado" {
+		unMicro.subirA(julia)
+		unMicro.bajar(julia)
+		assert.notThat(unMicro.estaEmpleado(julia))			
+	}
+	
+	test "no puede bajar un apurado" {
+		assert.throwsException({ unMicro.bajarA(julia)})
+	}
+}
